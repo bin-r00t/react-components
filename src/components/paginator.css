@@ -1,0 +1,37 @@
+.post-ellipsis,
+.prev-ellipsis {
+  position: relative;
+}
+
+.prev-ellipsis > .before,
+.prev-ellipsis > .after,
+.post-ellipsis > .before,
+.post-ellipsis > .after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.prev-ellipsis > .after {
+  visibility: hidden;
+}
+.post-ellipsis > .after {
+  visibility: hidden;
+}
+
+.prev-ellipsis:hover > .before {
+  visibility: hidden;
+}
+.prev-ellipsis:hover > .after {
+  visibility: visible;
+}
+
+.post-ellipsis:hover > .before {
+  visibility: hidden;
+}
+.post-ellipsis:hover > .after {
+  visibility: visible;
+}
