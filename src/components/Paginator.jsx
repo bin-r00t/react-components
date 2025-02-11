@@ -21,15 +21,13 @@ export default function Paginator({
   const MAX_ITEMS = MAX_INTERNAL_ITEMS + 3;
 
   const handlePageChange = (newPage) => {
-    console.log("handlePageChange --- ", newPage);
     if (newPage < 1) return;
-    if (newPage > total) return;
+    if (newPage > total) newPage = total;
     setPage(newPage);
     onPageChange?.({ page: newPage, size: pageSize });
   };
 
   const handlePageSizeChange = (newPageSize) => {
-    console.log("handlePageSizeChange --- ", newPage);
     setPageSize(newPageSize);
     onPageSizeChange?.({ page, size: newPageSize });
   };
@@ -40,7 +38,7 @@ export default function Paginator({
       return (
         <button
           className="prev-ellipsis relative flex items-center justify-center cursor-pointer hover:border border-1 border-transparent hover:border-indigo-400  hover:bg-indigo-400 hover:text-white rounded-md p-2"
-          onClick={() => handlePageChange(page - 1)}
+          onClick={() => handlePageChange(page - 5)}
           title="向前5页"
         >
           <span className="w-4 h-4"></span>
@@ -66,7 +64,7 @@ export default function Paginator({
       return (
         <button
           className="post-ellipsis  flex items-center justify-center cursor-pointer hover:border border-1 border-transparent hover:border-indigo-400  hover:bg-indigo-400 hover:text-white rounded-md p-2"
-          onClick={() => handlePageChange(page + 1)}
+          onClick={() => handlePageChange(page + 5)}
           title="向后5页"
         >
           <span className="w-4 h-4"></span>

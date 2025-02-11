@@ -32,6 +32,11 @@ function App() {
           total={42}
           defaultPage={0}
           defaultPageSize={pageSize}
+          onPageChange={({ page }) => {
+            console.log(page);
+            setCurrentPage(page);
+          }}
+          onPageSizeChange={(pageSize) => setPageSize(pageSize)}
         />
       </div>
     </div>
